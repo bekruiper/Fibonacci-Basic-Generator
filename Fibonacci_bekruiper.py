@@ -35,13 +35,16 @@ while True:
 
     # Result
     if event == '-GENERATE-':
-        for i in fibonacci_gen(n):
-            result_list = list(fibonacci_gen(n))
-        str_result_list = ""
-        for i in result_list:
-            str_result_list += "{}{}".format(i, " / ")
-        new_list = str_result_list[:-len("/")]
-        sg.popup('Your Sequence', str_result_list)
+        try:
+            for i in fibonacci_gen(n):
+                result_list = list(fibonacci_gen(n))
+            str_result_list = ""
+            for i in result_list:
+                str_result_list += "{}{}".format(i, " / ")
+            new_list = str_result_list[:-len("/")]
+            sg.popup('Your Sequence', str_result_list)
+        except:
+            sg.popup('Error!', 'Invalid Input')
 
     if event == sg.WIN_CLOSED or event == 'Exit':
         window.close()
